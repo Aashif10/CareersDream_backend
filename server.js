@@ -8,8 +8,22 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Middleware — CORS must come BEFORE routes and body parsers
+app.use(cors({
+  origin: [
+    'https://www.careersdream.com',
+    'https://careersdream.com',
+    'http://localhost:5173',
+    'http://localhost:5174'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
+// Handle preflight requests explicitly
+app.options('*', cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -19,7 +33,7 @@ const connectDB = async () => {
         const conn = await mongoose.connect(process.env.MONGO_URI);
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
-        console.error(`Error: ${error.message}`);
+        console.error(`MongoDB connection error: ${error.message}`);
         process.exit(1);
     }
 };
@@ -28,6 +42,11 @@ connectDB();
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+
+// Health check route
+app.get('/', (req, res) => {
+    res.json({ success: true, message: 'CareersDream API is running' });
+});
 
 const PORT = process.env.PORT || 5000;
 

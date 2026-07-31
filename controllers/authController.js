@@ -45,8 +45,8 @@ exports.register = async (req, res) => {
             res.status(400).json({ success: false, message: 'Invalid user data' });
         }
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, message: 'Server error' });
+        console.error('Register error:', error);
+        res.status(500).json({ success: false, message: 'Server error', error: error.message });
     }
 };
 
@@ -61,7 +61,7 @@ exports.login = async (req, res) => {
             return res.status(400).json({ success: false, message: 'Please provide an email and password' });
         }
 
-        // Check for user
+        // Check for user (include password for comparison)
         const user = await User.findOne({ email }).select('+password');
 
         if (!user) {
@@ -83,8 +83,8 @@ exports.login = async (req, res) => {
             token: generateToken(user._id)
         });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, message: 'Server error' });
+        console.error('Login error:', error);
+        res.status(500).json({ success: false, message: 'Server error', error: error.message });
     }
 };
 
@@ -99,7 +99,7 @@ exports.getMe = async (req, res) => {
             data: user
         });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, message: 'Server error' });
+        console.error('GetMe error:', error);
+        res.status(500).json({ success: false, message: 'Server error', error: error.message });
     }
 };
