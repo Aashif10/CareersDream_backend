@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 // Load env vars
 dotenv.config();
@@ -21,11 +22,15 @@ app.use(cors({
   credentials: true
 }));
 
-// Handle preflight requests explicitly
-app.options('*', cors());
+// Handle preflight requests explicitly (Express 5 syntax)
+app.options('/{*path}', cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Serve uploaded profile images as static files
+// Access via: http://localhost:5000/uploads/<filename>
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Connect to MongoDB
 const connectDB = async () => {
@@ -42,6 +47,7 @@ connectDB();
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/team', require('./routes/team'));
 
 // Health check route
 app.get('/', (req, res) => {
