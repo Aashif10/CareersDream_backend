@@ -75,3 +75,64 @@ exports.getSubscribers = async (req, res) => {
         });
     }
 };
+
+// @desc    Delete subscriber
+// @route   DELETE /api/newsletter/:id
+// @access  Private/Admin
+exports.deleteSubscriber = async (req, res) => {
+    try {
+        const subscriber = await Newsletter.findById(req.params.id);
+        if (!subscriber) {
+            return res.status(404).json({
+                success: false,
+                message: 'Subscriber not found'
+            });
+        }
+
+        await subscriber.deleteOne();
+
+        res.status(200).json({
+            success: true,
+            message: 'Subscriber removed successfully'
+        });
+    } catch (error) {
+        console.error('Delete subscriber error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Server error',
+            error: error.message
+        });
+    }
+};
+
+// @desc    Toggle subscriber status
+// @route   PATCH /api/newsletter/:id/toggle
+// @access  Private/Admin
+exports.toggleSubscriberStatus = async (req, res) => {
+    try {
+        const subscriber = await Newsletter.findById(req.params.id);
+        if (!subscriber) {
+            return res.status(404).json({
+                success: false,
+                message: 'Subscriber not found'
+            });
+        }
+
+        subscriber.isActive = !subscriber.isActive;
+        await subscriber.save();
+
+        res.status(200).json({
+            success: true,
+            message: `Subscriber marked as ${subscriber.isActive ? 'active' : 'inactive'}`,
+            data: subscriber
+        });
+    } catch (error) {
+        console.error('Toggle subscriber status error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Server error',
+            error: error.message
+        });
+    }
+};
+
