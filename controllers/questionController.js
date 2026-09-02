@@ -187,74 +187,214 @@ exports.seedQuestions = async (req, res) => {
     try {
         const sampleQuestions = [
             {
-                question: 'I prefer working independently and taking full responsibility for complex project decisions.',
-                category: 'Work Autonomy & Leadership',
+                order: 1,
+                question: 'I feel energized, outgoing, and confident when interacting in large group settings or meeting new people.',
+                category: 'E — Extraversion / Sociability',
                 scoringType: 'Normal',
-                options: NORMAL_OPTIONS,
-                order: 1
+                options: NORMAL_OPTIONS
             },
             {
-                question: 'I actively seek out intellectually challenging tasks even when no immediate guidance is provided.',
-                category: 'Critical Thinking & Problem Solving',
+                order: 2,
+                question: 'I keep my study schedules, personal assignments, and daily commitments well-organized and planned in advance.',
+                category: 'C — Conscientiousness / Discipline',
                 scoringType: 'Normal',
-                options: NORMAL_OPTIONS,
-                order: 2
+                options: NORMAL_OPTIONS
             },
             {
-                question: 'I find it easy to adapt to sudden changes in strategy, environment, or project scope.',
-                category: 'Adaptability & Resilience',
+                order: 3,
+                question: 'I genuinely enjoy helping classmates and coworkers, and I prioritize teamwork and mutual kindness.',
+                category: 'A — Agreeableness / Empathy',
                 scoringType: 'Normal',
-                options: NORMAL_OPTIONS,
-                order: 3
+                options: NORMAL_OPTIONS
             },
             {
-                question: 'I prefer structured, clearly defined rules over open-ended, ambiguous assignments.',
-                category: 'Work Structure & Discipline',
+                order: 4,
+                question: 'I am drawn to novel ideas, creative arts, and exploring imaginative solutions to complex problems.',
+                category: 'O — Openness / Curiosity',
                 scoringType: 'Normal',
-                options: NORMAL_OPTIONS,
-                order: 4
+                options: NORMAL_OPTIONS
             },
             {
-                question: 'I feel energized when collaborating and brainstorming in large group environments.',
-                category: 'Interpersonal Communication',
+                order: 5,
+                question: 'I stay calm, level-headed, and composed even when facing unexpected changes, exams, or tight deadlines.',
+                category: 'S — Emotional Stability',
                 scoringType: 'Normal',
-                options: NORMAL_OPTIONS,
-                order: 5
+                options: NORMAL_OPTIONS
             },
             {
-                question: 'I thoroughly analyze data and evidence before making any major conclusion.',
-                category: 'Analytical Orientation',
+                order: 6,
+                question: 'I readily take initiative and feel comfortable stepping forward to guide or lead group activities.',
+                category: 'E — Extraversion / Sociability',
                 scoringType: 'Normal',
-                options: NORMAL_OPTIONS,
-                order: 6
+                options: NORMAL_OPTIONS
             },
             {
-                question: 'I stay calm and maintain clear focus when working under high-pressure deadlines.',
-                category: 'Emotional Stability & Stress Management',
+                order: 7,
+                question: 'I am disciplined, reliable, and finish all required tasks thoroughly before taking time to relax.',
+                category: 'C — Conscientiousness / Discipline',
                 scoringType: 'Normal',
-                options: NORMAL_OPTIONS,
-                order: 7
+                options: NORMAL_OPTIONS
             },
             {
-                question: 'I enjoy mentoring others and helping team members overcome learning hurdles.',
-                category: 'Empathy & Mentorship',
+                order: 8,
+                question: 'I listen attentively to other perspectives and seek respectful, constructive common ground during disagreements.',
+                category: 'A — Agreeableness / Empathy',
                 scoringType: 'Normal',
-                options: NORMAL_OPTIONS,
-                order: 8
+                options: NORMAL_OPTIONS
             },
             {
-                question: 'I frequently look for innovative, out-of-the-box approaches to solve everyday problems.',
-                category: 'Innovation & Creativity',
+                order: 9,
+                question: 'I have a strong curiosity about how things work and actively pursue learning opportunities outside my routine.',
+                category: 'O — Openness / Curiosity',
                 scoringType: 'Normal',
-                options: NORMAL_OPTIONS,
-                order: 9
+                options: NORMAL_OPTIONS
             },
             {
-                question: 'I prioritize meticulous attention to detail over rapid speed of execution.',
-                category: 'Quality & Precision',
+                order: 10,
+                question: 'I bounce back quickly from unexpected setbacks, critical feedback, or difficult academic challenges.',
+                category: 'S — Emotional Stability',
                 scoringType: 'Normal',
-                options: NORMAL_OPTIONS,
-                order: 10
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 11,
+                question: 'I find it effortless to initiate discussions and express my thoughts openly in social and academic circles.',
+                category: 'E — Extraversion / Sociability',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 12,
+                question: 'I establish clear milestones for myself and maintain consistent study habits to reach my goals.',
+                category: 'C — Conscientiousness / Discipline',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 13,
+                question: 'I am sensitive to the needs and feelings of others and readily offer support when someone needs a hand.',
+                category: 'A — Agreeableness / Empathy',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 14,
+                question: 'I enjoy thinking about theoretical questions, futuristic concepts, and abstract possibilities.',
+                category: 'O — Openness / Curiosity',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 15,
+                question: 'I rarely feel overwhelmed or excessively worried when high demands or unexpected pressures arise.',
+                category: 'S — Emotional Stability',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 16,
+                question: 'I thrive when working in dynamic, collaborative environments rather than isolated, solitary routines.',
+                category: 'E — Extraversion / Sociability',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 17,
+                question: 'I pay close attention to accuracy and details, striving to deliver high-quality and dependable outcomes.',
+                category: 'C — Conscientiousness / Discipline',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 18,
+                question: 'I believe in treating everyone with compassion, fairness, and fostering cooperative partnerships.',
+                category: 'A — Agreeableness / Empathy',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 19,
+                question: 'I regularly seek out unconventional perspectives and innovative ways to approach everyday challenges.',
+                category: 'O — Openness / Curiosity',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 20,
+                question: 'I maintain emotional equilibrium and steady focus during high-pressure situations.',
+                category: 'S — Emotional Stability',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 21,
+                question: 'I feel enthusiastic and comfortable speaking up, presenting ideas, or answering questions in front of a group.',
+                category: 'E — Extraversion / Sociability',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 22,
+                question: 'I structure my time effectively and avoid leaving critical tasks until the last minute.',
+                category: 'C — Conscientiousness / Discipline',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 23,
+                question: 'I am cooperative, considerate, and value healthy team camaraderie over personal rivalries.',
+                category: 'A — Agreeableness / Empathy',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 24,
+                question: 'I enjoy exploring diverse disciplines, cultural traditions, and artistic or philosophical subjects.',
+                category: 'O — Openness / Curiosity',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 25,
+                question: 'I stay optimistic, patient, and self-assured when dealing with stressful or challenging circumstances.',
+                category: 'S — Emotional Stability',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 26,
+                question: 'I bring vibrant energy to team projects and naturally encourage others to participate enthusiastically.',
+                category: 'E — Extraversion / Sociability',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 27,
+                question: 'I am persevering and follow through on my duties until completion, even when the work is demanding.',
+                category: 'C — Conscientiousness / Discipline',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 28,
+                question: 'I am empathetic and work proactively to resolve conflicts with empathy, diplomacy, and tact.',
+                category: 'A — Agreeableness / Empathy',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 29,
+                question: 'I love experimenting with new techniques, tools, and creative angles rather than sticking rigidly to tradition.',
+                category: 'O — Openness / Curiosity',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
+            },
+            {
+                order: 30,
+                question: 'I quickly regain my composure and mental clarity after experiencing stress or emotional tension.',
+                category: 'S — Emotional Stability',
+                scoringType: 'Normal',
+                options: NORMAL_OPTIONS
             }
         ];
 
@@ -318,6 +458,15 @@ exports.checkEmailSubmission = async (req, res) => {
     }
 };
 
+// Big 5 Dimension configuration for scoring
+const DIMENSION_DEFS = [
+    { code: 'E', name: 'Extraversion / Sociability', fullName: 'E — Extraversion / Sociability', qNums: [1, 6, 11, 16, 21, 26], measures: 'Comfort with people, group energy, leadership' },
+    { code: 'C', name: 'Conscientiousness / Discipline', fullName: 'C — Conscientiousness / Discipline', qNums: [2, 7, 12, 17, 22, 27], measures: 'Organisation, responsibility, study habits' },
+    { code: 'A', name: 'Agreeableness / Empathy', fullName: 'A — Agreeableness / Empathy', qNums: [3, 8, 13, 18, 23, 28], measures: 'Kindness, cooperation, teamwork' },
+    { code: 'O', name: 'Openness / Curiosity', fullName: 'O — Openness / Curiosity', qNums: [4, 9, 14, 19, 24, 29], measures: 'Creativity, learning, exploration' },
+    { code: 'S', name: 'Emotional Stability', fullName: 'S — Emotional Stability', qNums: [5, 10, 15, 20, 25, 30], measures: 'Calmness, resilience, stress management' }
+];
+
 // @desc    Submit user test, compute scores & marks, generate & save report
 // @route   POST /api/test/submit
 // @access  Public
@@ -351,7 +500,7 @@ exports.submitTest = async (req, res) => {
             });
         }
 
-        // Fetch questions from DB if IDs are provided to get accurate option scoring
+        // Fetch questions from DB if IDs are provided
         const questionIds = responses
             .map(r => r.questionId)
             .filter(id => id && id.toString().match(/^[0-9a-fA-F]{24}$/));
@@ -368,12 +517,13 @@ exports.submitTest = async (req, res) => {
             }
         }
 
-        // Process each response, look up question details or calculate marks according to question scale
+        // Process each response
         let totalScore = 0;
         const processedResponses = [];
-        const categoryMap = {};
+        const answersByOrder = {};
 
-        for (const resp of responses) {
+        responses.forEach((resp, idx) => {
+            const qNum = resp.order || (idx + 1);
             let questionText = resp.questionText || '';
             let category = resp.category || 'General';
             let marks = null;
@@ -393,7 +543,6 @@ exports.submitTest = async (req, res) => {
                 }
             }
 
-            // If not resolved from DB question, check sent marksObtained or fallback mapping
             if (marks === null || marks === undefined) {
                 if (resp.marksObtained !== undefined && resp.marksObtained !== null) {
                     marks = Number(resp.marksObtained);
@@ -405,37 +554,40 @@ exports.submitTest = async (req, res) => {
             }
 
             totalScore += marks;
+            answersByOrder[qNum] = marks;
 
             processedResponses.push({
+                order: qNum,
                 questionId: resp.questionId || null,
                 questionText: questionText || 'Question',
                 category: category,
-                selectedOption: optionLabel,
+                selectedOption: optionLabel || 'Neutral',
                 marksObtained: marks
             });
+        });
 
-            // Track category breakdowns
-            if (!categoryMap[category]) {
-                categoryMap[category] = { score: 0, count: 0 };
-            }
-            categoryMap[category].score += marks;
-            categoryMap[category].count += 1;
-        }
+        // Compute 5 Dimension scores and rank descending
+        const categoryBreakdown = DIMENSION_DEFS.map(dim => {
+            let dimScore = 0;
+            dim.qNums.forEach(num => {
+                dimScore += (answersByOrder[num] !== undefined ? answersByOrder[num] : 3);
+            });
+            const maxScore = 30;
+            const percentage = Number(((dimScore / maxScore) * 100).toFixed(2));
+            return {
+                category: dim.fullName,
+                code: dim.code,
+                score: dimScore,
+                maxScore,
+                percentage,
+                measures: dim.measures
+            };
+        }).sort((a, b) => b.score - a.score);
 
         const maxScore = processedResponses.length * 5;
         const percentage = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
-        const summary = generateReportSummary(percentage, totalScore, maxScore);
-
-        const categoryBreakdown = Object.keys(categoryMap).map((catKey) => {
-            const catItem = categoryMap[catKey];
-            const catMax = catItem.count * 5;
-            return {
-                category: catKey,
-                score: catItem.score,
-                maxScore: catMax,
-                percentage: catMax > 0 ? Math.round((catItem.score / catMax) * 100) : 0
-            };
-        });
+        const topDimension = categoryBreakdown[0];
+        const summary = `Primary Strength: ${topDimension.category} with a score of ${topDimension.score}/30 (${topDimension.percentage}%). Measures: ${topDimension.measures}.`;
 
         // Save submission in database
         const submission = await TestSubmission.create({
